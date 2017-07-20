@@ -1,22 +1,44 @@
 # Project: Build a Traffic Sign Recognition Program
 
-Introduction:
+## Introduction:
 
-In this project, Convoluted and Deep neural Networks were implemented using Python Library Tensorflow. The brief details followed to complete this project were given below:
+In this project, Convoluted and Deep neural Networks were implemented using Python Library Tensorflow. 
+This is part of the Term-1 Project-2 of Udacity Nanodegree program, where the concepts of Deep Neural Networks, Convolutional Neural Networks are dealt. The sub-sections explain various steps involved and taken in this project.
 
-The Project
-The goals / steps of this project are the following:
-* Load the data set
-For reading csv files, pandas package is used. Reading and printing images is done through matplotlib imread and imshow. Additionally the pickle files were loaded using pickle package of python
-* Explore, summarize and visualize the data set
-This is done mainly using Matplotlib
-* Design, train and test a model architecture
-Tensorflow lenet architecture is used for this part of the project. The solution of Lenet given coupled with dropout and max pooling is done.
-* Use the model to make predictions on new images
-New images were downloaded from internet and were analyzed for results.
-* Analyze the softmax probabilities of the new images
-This is done using bar function of matplotlib.
+# Data Exploration:
+The files were already given in pickle format and the pickle files are loaded, and filters were applied using pickle package for Pythonn.
+The data is already divided into 3 different categories, namely Test, Training and Validation. Training data is used for training the network, test and validation for testing and validation respectively.
+Visualization os the data is done by plotting various images present in the data using functions such as matplotlib. subplots were used and the necessary plots were generated.
 
+# Design and Test Model Architecture:
+Preprocessing: For this step, simple normalization of the data is done. i.e., simply each of the image file is converted to zero mean and 1 variance by subtracting 128 and dividing the remainder by 128.
+Model Architecture: Convoluted Neural Network very similar to Lenet is implemented. In the first step, The input file in format 32*32*3 is converted to 28*28*16. This is done by kernel of (5,5). Then max-pooling with strides of (2,2) is done. After this, again 2D convolution of kernel 5*5 is done to obtain image size of 10*10*64
+Then, again max-pooling is applied for the image. Obtained size is 5*5*64.
+
+After max-pooling, flattening of the image is done using flatten function. The obtained size is 1600, fully connected.
+
+Then, dropout followed by further truncation of size to 120 is done.
+
+After this step, dropout followed by truncation to 84, followed by dropout again and final tuncation to 43 (no. of classes) is done.
+
+Note that after each step, relu activation is implemented. Also, finally softmax activation is implemented for web images.
+
+# Model Training:
+For training of the model, 20 epochs were used and Adam optimizer is used for training data. The optimizer is given the loss function as input which is calculated from cross entropy of training data and one hot labels of the output expected. Accuracy of about .99 for both training and testing data, followed by 0.971 for validation data is observed.
+
+# Solution:
+As explained earlier, the solution obtained was much higher than 0.93. Its about 0.99 for both training and testing and about 0.97 for validation.
+
+## Test Model Against new images:
+
+# Acquiring new Images:
+New images were acquired using internet search for German Images in Google and downloaded and saved in a folder from where it can be accessed.
+
+# Performance against new Images:
+The trained model is saved using the tensorflow save session function. Then, saved model is restored and the parameters were tested against the new images. The performance of the images was okay and about 3/5 images were correctly identified.
+
+# Model Certainty:
+The models which were identified correctly were identified with very high confidence level of probability over 98% when used softmax activation (exponential). This suggests that model is trained well for image classification.
 
 ### Results:
 
