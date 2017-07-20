@@ -21,8 +21,8 @@ This is done using bar function of matplotlib.
 ### Results:
 
 The accuracy of the training set is # 99%, accuracy of test set is also # 99% and validation set is having an accuracy of about # 97.1%. 
-The details of implementation can be seen in Ipython Notebook acttached.
+The details of implementation can be seen in Ipython Notebook attached.
 
-### Obsesrvations
+### Observations
 
 Though the accuracy of the data is over 97% of the data provided, for new set of images which were downloaded from internet, the accuracy is about 60%, which is not to the expectations. This is mainly because the neural net is tuned to the variables which are present in the data and is not able to process new images accuractely. One way to handle this issue is by training the data over larger variety of data and also analyzing what are present in each layer of the image and then selecting images which cover all possible configurations
