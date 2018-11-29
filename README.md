@@ -32,6 +32,10 @@ Normalized image of the same is:
 
 <a href="url"><img src="https://i.ibb.co/61rmsk4/Screenshot-from-2018-11-29-00-43-28.png" align="center" height="200" width="250" ></a>
 
+As seen, there is no difference in which the image is displayed. However, the values of the image matrix varies from 0- 1 instead of 0 to 255.
+
+Adam optimizer is used for this model over Stochastic Gradient Descent as Adam optimizer uses moving average of the parameters and hence enables to use larger step size. The Learning rate used for this model is 0.001 and the number of epochs used were 20, with batch size as 128.  
+
 Model Architecture: Convoluted Neural Network very similar to Lenet is implemented. In the first step, The input file in format 32*32*3 is converted to 28*28*16. This is done by kernel of (5,5). Then max-pooling with strides of (2,2) is done. After this, again 2D convolution of kernel 5*5 is done to obtain image size of 10*10*64
 Then, again max-pooling is applied for the image. Obtained size is 5*5*64.
 
@@ -42,6 +46,10 @@ Then, dropout followed by further truncation of size to 120 is done.
 After this step, dropout followed by truncation to 84, followed by dropout again and final tuncation to 43 (no. of classes) is done.
 
 Note that after each step, relu activation is implemented. Also, finally softmax activation is implemented for web images.
+
+This was the optimal solution I reached after mild variations to the given LeNet architecture. I used LeNet architecture without any activation and I received accuracy of 89%. Then, I added dropout and the accuracy increased to 91%. After dropout, I added relu activation after each step which increased the overall accuracy to 97%. However, I did not add extra layers to the base LeNet model. I increased Epochs to 20 for better training. Also, I used batch size as 128 and learning 0.01 throught out finding the model architecture.
+
+
 
 ## Model Training:
 For training of the model, 20 epochs were used and Adam optimizer is used for training data. The optimizer is given the loss function as input which is calculated from cross entropy of training data and one hot labels of the output expected. Accuracy of about .99 for both training and testing data, followed by 0.971 for validation data is observed.
@@ -54,8 +62,20 @@ As explained earlier, the solution obtained was much higher than 0.93. Its about
 ## Acquiring new Images:
 New images were acquired using internet search for German Images in Google and downloaded and saved in a folder from where it can be accessed.
 
+The New Images are given below. These images are of the order 400x300 pixels. I converted these images to 32x32 size for using them in this model.
+
+Given below are these images after converting them to 32x32 size:
+
+<a href="url"><img src="https://i.ibb.co/zRtHDD9/Screenshot-from-2018-11-29-01-05-39.png" align="center" height="200" width="250" ></a>
+
 ## Performance against new Images:
 The trained model is saved using the tensorflow save session function. Then, saved model is restored and the parameters were tested against the new images. The performance of the images was okay and about 3/5 images were correctly identified.
+
+The softmax probabilities of the new images is given below:
+
+<a href="url"><img src="https://i.ibb.co/vCNRS3P/Screenshot-from-2018-11-29-01-00-35.png" align="center" height="200" width="250" ></a>
+
+It is observed that the Pedestrian and 60 kmph speed limit signs are not predicted correctly. This can be partially attributed to the quality of the images which were used for training the models.
 
 ## Model Certainty:
 The models which were identified correctly were identified with very high confidence level of probability over 98% when used softmax activation (exponential). This suggests that model is trained well for image classification.
