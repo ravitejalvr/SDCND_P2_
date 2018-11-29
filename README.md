@@ -10,6 +10,14 @@ The files were already given in pickle format and the pickle files are loaded, a
 The data is already divided into 3 different categories, namely Test, Training and Validation. Training data is used for training the network, test and validation for testing and validation respectively.
 Visualization os the data is done by plotting various images present in the data using functions such as matplotlib. subplots were used and the necessary plots were generated.
 
+Data Statistics: Number of Training Examples: 34799
+                 Number of Testing Examples: 12630
+                 Image Data Shape in DataSet: (32,32,3)
+                 Number of Classes: 43
+                 
+Sample Images of the DataSet are given below:
+<a href="url"><img src="https://ibb.co/JkrJnWT" align="center" height="200" width="250" ></a>
+
 ## Design and Test Model Architecture:
 Preprocessing: For this step, simple normalization of the data is done. i.e., simply each of the image file is converted to zero mean and 1 variance by subtracting 128 and dividing the remainder by 128.
 Model Architecture: Convoluted Neural Network very similar to Lenet is implemented. In the first step, The input file in format 32*32*3 is converted to 28*28*16. This is done by kernel of (5,5). Then max-pooling with strides of (2,2) is done. After this, again 2D convolution of kernel 5*5 is done to obtain image size of 10*10*64
