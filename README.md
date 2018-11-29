@@ -19,8 +19,19 @@ Sample Images of the DataSet are given below:
 
 <a href="url"><img src="https://i.ibb.co/9Yy5nm0/Screenshot-from-2018-11-28-23-03-34.png" align="center" height="200" width="250" ></a>
 
+For more detailed view, please visit the Jupyter Notebook in this repository.
+
 ## Design and Test Model Architecture:
 Preprocessing: For this step, simple normalization of the data is done. i.e., simply each of the image file is converted to zero mean and 1 variance by subtracting 128 and dividing the remainder by 128.
+
+Original image is given by:
+
+<a href="url"><img src="https://i.ibb.co/CHcShpy/Screenshot-from-2018-11-29-00-43-07.png" align="center" height="200" width="250" ></a>
+
+Normalized image of the same is:
+
+<a href="url"><img src="https://i.ibb.co/61rmsk4/Screenshot-from-2018-11-29-00-43-28.png" align="center" height="200" width="250" ></a>
+
 Model Architecture: Convoluted Neural Network very similar to Lenet is implemented. In the first step, The input file in format 32*32*3 is converted to 28*28*16. This is done by kernel of (5,5). Then max-pooling with strides of (2,2) is done. After this, again 2D convolution of kernel 5*5 is done to obtain image size of 10*10*64
 Then, again max-pooling is applied for the image. Obtained size is 5*5*64.
 
