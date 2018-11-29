@@ -17,7 +17,7 @@ Data Statistics: Number of Training Examples: 34799
                  
 Sample Images of the DataSet are given below:
 
-<a href="url"><img src="https://image.ibb.co/jiRYWk/before_persp.png" align="center" height="200" width="250" ></a>
+<a href="url"><img src="https://i.ibb.co/9Yy5nm0/Screenshot-from-2018-11-28-23-03-34.png" align="center" height="200" width="250" ></a>
 
 ## Design and Test Model Architecture:
 Preprocessing: For this step, simple normalization of the data is done. i.e., simply each of the image file is converted to zero mean and 1 variance by subtracting 128 and dividing the remainder by 128.
